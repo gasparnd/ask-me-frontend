@@ -8,6 +8,10 @@ module.exports = {
       maxWidth: {
         maxW: "1374px",
       },
+      colors: {
+        darkBackground: "#46244C",
+        darkText: "#FFFBE7",
+      },
     },
   },
   plugins: [],
