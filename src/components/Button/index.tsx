@@ -18,10 +18,11 @@ const Button = (props: PropsWithChildren<IProp>) => {
 
   let baseClassNames = "";
 
-  let baseStyles = { backgroundColor: "" };
+  let baseStyles = { backgroundColor: "", color: "" };
 
   if (disabled) {
     baseStyles.backgroundColor = DISABLED_COLOR;
+    baseStyles.backgroundColor = "#999999";
   } else if (color === "primary") {
     baseStyles.backgroundColor = PRIMARY_COLOR;
   }

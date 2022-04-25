@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         darkBackground: "#46244C",
+        darkCard: "#712B75",
         darkText: "#FFFBE7",
       },
     },

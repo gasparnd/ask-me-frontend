@@ -27,7 +27,7 @@ export const LoginPage: NextPage = () => {
 
     setLoading(true);
 
-    setTimeout(() => router.push("/"), 1000);
+    setTimeout(() => router.push("/gasparnd"), 1000);
   };
 
   return (
