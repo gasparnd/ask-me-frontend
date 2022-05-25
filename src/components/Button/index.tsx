@@ -7,14 +7,25 @@ interface IProp {
   disabled?: boolean;
   className?: string;
   styles?: CSSProperties;
+  onClick?: () => void;
   type?: "button" | "submit" | "reset" | undefined;
 }
 const Button = (props: PropsWithChildren<IProp>) => {
-  const { color, disabled = false, children, className, styles, type } = props;
+  const {
+    onClick,
+    color,
+    disabled = false,
+    children,
+    className,
+    styles,
+    type,
+  } = props;
 
   const PRIMARY_COLOR = "#0070f3";
 
   const DISABLED_COLOR = "#666666";
+
+  const ERROR_COLOR = "#d66565";
 
   let baseClassNames = "";
 
@@ -25,10 +36,13 @@ const Button = (props: PropsWithChildren<IProp>) => {
     baseStyles.backgroundColor = "#999999";
   } else if (color === "primary") {
     baseStyles.backgroundColor = PRIMARY_COLOR;
+  } else if (color === "error") {
+    baseStyles.backgroundColor = ERROR_COLOR;
   }
 
   return (
     <NextUiButton
+      onClick={onClick}
       type={type}
       style={styles ? { ...styles, ...baseStyles } : baseStyles}
       className={className ? baseClassNames + " " + className : baseClassNames}
