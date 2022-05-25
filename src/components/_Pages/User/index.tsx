@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
@@ -7,6 +7,7 @@ import ProfileMock from "../../../../public/images/profile-mock.png";
 import { QuestionList } from "../../QuestionList";
 import { UserHeader } from "../../UserHeader";
 import { CreateQuestion } from "../../From";
+import { api } from "../../../api";
 
 export const UserPage: NextPage = () => {
   const router = useRouter();
@@ -16,6 +17,10 @@ export const UserPage: NextPage = () => {
     ask: "",
     name: "",
   });
+
+  useEffect(() => {
+    api();
+  }, []);
 
   return (
     <section className="min-h-screen">
