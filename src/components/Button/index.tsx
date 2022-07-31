@@ -1,9 +1,7 @@
-import { Button as NextUiButton, NormalColors } from "@nextui-org/react";
-import { CSSProperties } from "react";
-import { PropsWithChildren } from "react";
+import { CSSProperties, PropsWithChildren } from "react";
 
 interface IProp {
-  color: NormalColors;
+  color: any;
   disabled?: boolean;
   className?: string;
   styles?: CSSProperties;
@@ -41,7 +39,7 @@ const Button = (props: PropsWithChildren<IProp>) => {
   }
 
   return (
-    <NextUiButton
+    <button
       onClick={onClick}
       type={type}
       style={styles ? { ...styles, ...baseStyles } : baseStyles}
@@ -50,7 +48,7 @@ const Button = (props: PropsWithChildren<IProp>) => {
       disabled={disabled}
     >
       {children}
-    </NextUiButton>
+    </button>
   );
 };
 

@@ -24,7 +24,7 @@ export const UserPage: NextPage = () => {
 
   return (
     <section className="min-h-screen">
-      <section className="rounded-lg bg-darkCard h-3/5">
+      <section className="rounded-lg bg-cardBackground h-3/5">
         <UserHeader
           user={user?.toString()}
           cover={CoverMock}

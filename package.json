@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/react": "^1.0.8-beta.5",
-    "next": "12.1.5",
-    "next-theme": "^0.1.5",
-    "next-themes": "^0.1.1",
+    "@chakra-ui/react": "^2.2.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "env-cmd": "^10.1.0",
+    "framer-motion": "^6",
+    "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },

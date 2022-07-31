@@ -1,7 +1,15 @@
-import { Modal } from "@nextui-org/react";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { IQuestion } from "../../Types/interfaces";
-import Button from "../Button";
 import { ResponseQuestionModal } from "./ResponseQuestionModal";
 
 interface IQuestionCardProps {
@@ -31,34 +39,33 @@ export const QuestionCard = (props: IQuestionCardProps) => {
   };
 
   return (
-    <article className="bg-darkCard p-4 rounded-lg">
-      <div>
-        <p className="text-sm">{`${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`}</p>
-        <div className="flex items-center flex-wrap">
-          <h4 className="font-bold text-2xl mr-8">{question}</h4>
-          <p className="italic text-gray-400">{name || "Anonymous"}</p>
+    <article className="bg-cardBackground p-1  rounded-lg mb-8">
+      <div className="p-4">
+        <h4 className="text-lightText font-bold mb-3 text-1xl">
+          {name || "Anonimo"}, pregunta:
+        </h4>
+        <div className="flex items-center ">
+          <h4 className="text-lightText text-2xl mr-8">{question}</h4>
         </div>
       </div>
-      <div
-        style={{ borderColor: "#0070f3" }}
-        className="mt-4 border-t pt-3 border-dashed"
-      >
-        {response ? (
+      {response ? (
+        <div className="mt-4 bg-background border-t p-4 rounded-lg">
           <p>{response}</p>
-        ) : (
+        </div>
+      ) : (
+        <div className="flex justify-end">
           <Button onClick={handelResponde} color="primary">
-            Response
+            Responder
           </Button>
-        )}
-      </div>
-      <Modal
-        blur
-        closeButton
-        onClose={() => setOpenModal(false)}
+        </div>
+      )}
+
+      <ResponseQuestionModal
+        question={question}
+        onAwnser={handelAwnser}
         open={openModal}
-      >
-        <ResponseQuestionModal onAwnser={handelAwnser} question={question} />
-      </Modal>
+        setOpen={setOpenModal}
+      />
     </article>
   );
 };

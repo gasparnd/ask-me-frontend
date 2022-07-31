@@ -4,7 +4,7 @@ interface IProps {}
 
 export const Layout = ({ children }: PropsWithChildren<IProps>) => {
   return (
-    <div className="bg-darkBackground">
+    <div className="bg-background">
       <div style={{ margin: "0 auto" }} className="max-w-maxW px-3">
         <main>{children}</main>
       </div>

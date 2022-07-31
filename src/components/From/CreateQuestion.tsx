@@ -1,7 +1,12 @@
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Switch,
+  Textarea,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Input, Switch, Textarea } from "@nextui-org/react";
-
-import Button from "../Button";
 
 interface ICreateQuestionProps {
   ask: { ask: string; name?: string };
@@ -12,11 +17,18 @@ const CreateQuestion = (props: ICreateQuestionProps) => {
   const { ask, setAsk } = props;
   const [anonymous, setAnonymous] = useState<boolean>(true);
 
-  const disabledButton = anonymous ? false : ask.name !== "" ? false : true;
+  let disabledButton = anonymous ? false : ask.name !== "" ? false : true;
+
+  if (anonymous) {
+    disabledButton = ask.ask === "" ? true : false;
+  } else {
+    disabledButton = ask.ask === "" && ask.name === "" ? true : false;
+  }
 
   return (
     <div className="px-4">
       <Textarea
+        colorScheme="red"
         placeholder="Ask me anything!!!"
         id="aks"
         aria-label="ask"
@@ -25,27 +37,37 @@ const CreateQuestion = (props: ICreateQuestionProps) => {
       />
       <div className="flex justify-between flex-wrap mt-8 ">
         <div className="flex items-center mb-8">
-          <Switch
-            initialChecked={anonymous}
-            onChange={(ev) => setAnonymous(ev.target.checked)}
-            className="mr-4"
-          />
-          {!anonymous ? (
-            <Input
-              value={ask.name}
-              id="name"
-              aria-label="name"
-              onChange={(ev) => setAsk({ ...ask, name: ev.target.value })}
-              type="text"
-              placeholder="name"
+          <FormControl display="flex" alignItems="center">
+            <Switch
+              className="mr-4"
+              isChecked={anonymous}
+              onChange={(ev) => setAnonymous(ev.target.checked)}
+              id="email-alerts"
             />
-          ) : (
-            <p>Anonymous</p>
-          )}
+            {!anonymous ? (
+              <Input
+                value={ask.name}
+                id="name"
+                aria-label="name"
+                className="text-darkText"
+                onChange={(ev) => setAsk({ ...ask, name: ev.target.value })}
+                type="text"
+                placeholder="name"
+              />
+            ) : (
+              <FormLabel
+                className="text-lightText"
+                htmlFor="email-alerts"
+                mb="0"
+              >
+                Anonimo
+              </FormLabel>
+            )}
+          </FormControl>
         </div>
 
         <Button disabled={disabledButton} color="primary">
-          Ask
+          Preguntar
         </Button>
       </div>
     </div>

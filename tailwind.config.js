@@ -9,9 +9,9 @@ module.exports = {
         maxW: "1374px",
       },
       colors: {
-        darkBackground: "#46244C",
-        darkCard: "#712B75",
-        darkText: "#FFFBE7",
+        background: "#F4F4F4",
+        cardBackground: "#0096FF",
+        lightText: "#F4F4F4",
       },
     },
   },

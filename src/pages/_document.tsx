@@ -1,5 +1,4 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import { CssBaseline } from "@nextui-org/react";
 import { FC } from "react";
 import App from "next/app";
 
@@ -25,8 +24,8 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>{[CssBaseline.flush()]}</Head>
-        <body className="bg-darkBackground">
+        <Head />
+        <body className="bg-background">
           <Main />
           <NextScript />
         </body>

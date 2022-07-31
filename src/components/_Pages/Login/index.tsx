@@ -1,6 +1,6 @@
+import { Checkbox, Input } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Checkbox, Input, Loading, Spacer } from "@nextui-org/react";
 import { useState } from "react";
 
 import Button from "../../Button";
@@ -37,8 +37,8 @@ export const LoginPage: NextPage = () => {
         onSubmit={handelSubmit}
       >
         <div
-          style={{ background: "#1A1A40", minWidth: 300 }}
-          className="p-4 border-transparent rounded-lg"
+          style={{ minWidth: 300 }}
+          className="p-4 bg-cardBackground border-transparent rounded-lg"
         >
           <h1 className="text-darkText text-5xl font-bold text-center mb-16">
             Login
@@ -50,34 +50,26 @@ export const LoginPage: NextPage = () => {
             }}
             width="100%"
             type="email"
-            labelPlaceholder="Email"
             placeholder="Email"
           />
           <p className="text-darkText mt-6 mb-3">Password</p>
-          <Input.Password
+          <Input
             onChange={(ev: any) => {
               setForm({ ...form, password: ev.target.value });
             }}
             width="100%"
-            labelPlaceholder="Password"
             placeholder="Password"
           />
-          <Spacer y={1} />
-          <Checkbox
-            onChange={(ev) => setForm({ ...form, rememberMe: ev })}
-            labelColor="primary"
-            initialChecked={form.rememberMe}
-          >
+          <Checkbox onChange={(ev) => setForm({ ...form, rememberMe: ev })}>
             Remember me
           </Checkbox>
-          <Spacer y={1} />
           <Button
             type="submit"
             className="w-full"
             color="primary"
             disabled={loading}
           >
-            {loading ? <Loading color="white" /> : "Login"}
+            {/* {loading ? <Loading color="white" /> : "Login"} */}
           </Button>
         </div>
       </form>

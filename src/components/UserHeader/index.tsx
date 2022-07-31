@@ -14,7 +14,7 @@ export const UserHeader = (props: IUserHeaderProps) => {
         <Image
           src={cover}
           height={750}
-          alt={`cover of ${user}`}
+          alt={`Cover of ${user}`}
           objectFit="cover"
         />
       </figure>
@@ -23,7 +23,7 @@ export const UserHeader = (props: IUserHeaderProps) => {
         style={{ top: "-80px" }}
       >
         <figure
-          className=" border-4 border-darkCard rounded-full"
+          className=" border-4 border-cardBackground rounded-full"
           style={{ width: 98, height: 98 }}
         >
           <Image
@@ -33,10 +33,10 @@ export const UserHeader = (props: IUserHeaderProps) => {
             objectFit="cover"
             layout="responsive"
             src={profilePic}
-            alt={`photo of ${user}`}
+            alt={`Photo of ${user}`}
           />
         </figure>
-        <h1 className="text-darkText text-2xl">{user}</h1>
+        <h1 className="text-lightText text-2xl">{user}</h1>
       </div>
     </div>
   );
