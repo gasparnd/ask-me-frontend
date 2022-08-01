@@ -1,9 +1,9 @@
-import { Checkbox, Input } from "@chakra-ui/react";
+import { Button, Checkbox, Input } from "@chakra-ui/react";
 import { NextPage } from "next";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
-import Button from "../../Button";
+import Illustration from "../../../../public/images/question-illustration.svg";
 
 interface IForm {
   email: string;
@@ -31,48 +31,49 @@ export const LoginPage: NextPage = () => {
   };
 
   return (
-    <section className="h-screen">
-      <form
-        className="h-full flex flex-col items-center justify-center"
-        onSubmit={handelSubmit}
-      >
-        <div
-          style={{ minWidth: 300 }}
-          className="p-4 bg-cardBackground border-transparent rounded-lg"
+    <section className="h-screen flex justify-end">
+      <div className="hidden w-1/2 md:flex items-center justify-start">
+        <Image alt="sdfds" height={300} width={300} src={Illustration} />
+      </div>
+      <div className="w-full md:w-1/2 bg-cardBackground">
+        <form
+          className="h-full flex flex-col items-center justify-center"
+          onSubmit={handelSubmit}
         >
-          <h1 className="text-darkText text-5xl font-bold text-center mb-16">
-            Login
-          </h1>
-          <p className="text-darkText mb-3">Email</p>
-          <Input
-            onChange={(ev: any) => {
-              setForm({ ...form, email: ev.target.value });
-            }}
-            width="100%"
-            type="email"
-            placeholder="Email"
-          />
-          <p className="text-darkText mt-6 mb-3">Password</p>
-          <Input
-            onChange={(ev: any) => {
-              setForm({ ...form, password: ev.target.value });
-            }}
-            width="100%"
-            placeholder="Password"
-          />
-          <Checkbox onChange={(ev) => setForm({ ...form, rememberMe: ev })}>
-            Remember me
-          </Checkbox>
-          <Button
-            type="submit"
-            className="w-full"
-            color="primary"
-            disabled={loading}
-          >
-            {/* {loading ? <Loading color="white" /> : "Login"} */}
-          </Button>
-        </div>
-      </form>
+          <div style={{ minWidth: 300 }} className="p-4 ">
+            <h1 className="text-lightText text-5xl font-bold text-center mb-16">
+              Iniciar sesión
+            </h1>
+            <Input
+              onChange={(ev: any) => {
+                setForm({ ...form, email: ev.target.value });
+              }}
+              width="100%"
+              type="email"
+              placeholder="Email"
+              className="mb-8"
+            />
+            <Input
+              onChange={(ev: any) => {
+                setForm({ ...form, password: ev.target.value });
+              }}
+              width="100%"
+              placeholder="Contraseña "
+            />
+            <Checkbox
+              className="my-8 text-lightText"
+              onChange={(ev) =>
+                setForm({ ...form, rememberMe: ev.target.checked })
+              }
+            >
+              Remember me
+            </Checkbox>
+            <Button type="submit" className="w-full" disabled={loading}>
+              Iniciar
+            </Button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 };
