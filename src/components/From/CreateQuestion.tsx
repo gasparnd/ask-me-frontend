@@ -29,9 +29,9 @@ const CreateQuestion = (props: ICreateQuestionProps) => {
     <div className="px-4">
       <Textarea
         colorScheme="red"
-        placeholder="Ask me anything!!!"
+        placeholder="¡Pregunta cualquier cosa!"
         id="aks"
-        aria-label="ask"
+        aria-label="¡Pregunta cualquier cosa!"
         onChange={(ev) => setAsk({ ...ask, ask: ev.target.value })}
         width="100%"
       />

@@ -7,7 +7,7 @@ import ProfileMock from "../../../../public/images/profile-mock.png";
 import { QuestionList } from "../../QuestionList";
 import { UserHeader } from "../../UserHeader";
 import { CreateQuestion } from "../../From";
-import { api } from "../../../api";
+import { GetUserByNikname } from "../../../api";
 
 export const UserPage: NextPage = () => {
   const router = useRouter();
@@ -19,7 +19,7 @@ export const UserPage: NextPage = () => {
   });
 
   useEffect(() => {
-    api();
+    GetUserByNikname("gasparnd")?.then((res) => console.log(res));
   }, []);
 
   return (
